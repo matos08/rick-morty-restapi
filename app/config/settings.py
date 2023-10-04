@@ -29,6 +29,7 @@ class Settings(BaseSettings):
     ]
     MODELS: List = [
         "aerich.models",
+        "app.modules.character.model",
     ]
 
 
