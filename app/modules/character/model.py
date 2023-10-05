@@ -2,7 +2,7 @@ from tortoise import Model
 from tortoise import fields
 
 
-class Character(Model):
+class CharacterModel(Model):
     id = fields.BigIntField(pk=True)
     name = fields.CharField(max_length=50)
     status = fields.CharField(max_length=50)
