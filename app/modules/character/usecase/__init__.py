@@ -1,1 +1,2 @@
 from .create_character_usecase import CreateCharacterUseCase
+from .get_character_by_id_usecase import GetCharacterById
