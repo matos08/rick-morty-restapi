@@ -28,4 +28,16 @@ class CharacterRepository:
         exemple: id = 1
         :return:
         """
-        return await self.entity.delete(**kwargs)
+        await self.entity.filter(**kwargs).delete()
+        return True
+
+    async def update(self, _id: int, **kwargs):
+        """
+        Objective to update the items found in the database
+        :param _id: id of object inside the database
+        :param kwargs: Attributes followed by key and value
+        exemple:name= test
+        :return:
+        """
+        await self.entity.filter(id=_id).update(**kwargs)
+        return await self.get_or_none(id=_id)

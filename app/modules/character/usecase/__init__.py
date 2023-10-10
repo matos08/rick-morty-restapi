@@ -1,2 +1,4 @@
 from .create_character_usecase import CreateCharacterUseCase
 from .get_character_by_id_usecase import GetCharacterById
+from .delete_character_by_id import DeleteCharacterById
+from .update_character_by_id import UpdateCharacterById

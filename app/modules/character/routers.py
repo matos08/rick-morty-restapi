@@ -1,10 +1,6 @@
-from select import select
+from fastapi import APIRouter, HTTPException, status, Response
 
-from fastapi import APIRouter, HTTPException
-from starlette import status
 from app.modules.character import schemas, usecase
-from app.modules.character.model import CharacterModel
-from app.modules.character.schemas import CharacterSchema
 
 router = APIRouter()
 
@@ -26,4 +22,24 @@ async def create_character(payload: schemas.CreateCharacterSchema):
 )
 async def get_character_by_id(id: int):
     result = await usecase.GetCharacterById(id).execute()
+    return result
+
+
+@router.delete(
+    "/character/{id}",
+    response_model=schemas.DefaultSchema,
+    status_code=status.HTTP_200_OK,
+)
+async def delete_character_by_id(id: int):
+    result = await usecase.DeleteCharacterById(id).execute()
+    return result
+
+
+@router.put(
+    "/character/{id}",
+    response_model=schemas.CharacterSchema,
+    status_code=status.HTTP_200_OK,
+)
+async def update_character_by_id(id: int, payload: schemas.UpdateCharacterSchema):
+    result = await usecase.UpdateCharacterById(id, payload).execute()
     return result
