@@ -1,4 +1,3 @@
 from .character_schema import CharacterSchema
 from .create_character_schema import CreateCharacterSchema
-from .default_schema import DefaultSchema
 from .update_character_schema import UpdateCharacterSchema

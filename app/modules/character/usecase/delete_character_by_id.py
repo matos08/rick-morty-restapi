@@ -2,6 +2,7 @@ from fastapi import HTTPException, status
 
 from app.modules.character import schemas
 from app.modules.character.repository import CharacterRepository
+from app.modules.core.default_schema import DefaultSchema
 
 
 class DeleteCharacterById:
@@ -26,7 +27,7 @@ class DeleteCharacterById:
             )
         return character
 
-    async def execute(self) -> schemas.DefaultSchema:
+    async def execute(self) -> DefaultSchema:
         await self.validate()
         await self._repository.delete(id=self._id)
-        return schemas.DefaultSchema(detail="Character deleted successfully")
+        return DefaultSchema(detail="Character deleted successfully")

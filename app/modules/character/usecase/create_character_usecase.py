@@ -1,4 +1,4 @@
-from app.modules.character import schemas, repository
+from app.modules.character import schemas
 from app.modules.character.repository import CharacterRepository
 from fastapi import HTTPException, status
 

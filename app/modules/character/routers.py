@@ -1,12 +1,13 @@
-from fastapi import APIRouter, HTTPException, status, Response
+from fastapi import APIRouter, status
 
 from app.modules.character import schemas, usecase
+from app.modules.core.default_schema import DefaultSchema
 
 router = APIRouter()
 
 
 @router.post(
-    "/character",
+    "/character/",
     status_code=status.HTTP_201_CREATED,
     response_model=schemas.CharacterSchema,
 )
@@ -27,7 +28,7 @@ async def get_character_by_id(id: int):
 
 @router.delete(
     "/character/{id}",
-    response_model=schemas.DefaultSchema,
+    response_model=DefaultSchema,
     status_code=status.HTTP_200_OK,
 )
 async def delete_character_by_id(id: int):
