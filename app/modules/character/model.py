@@ -9,6 +9,10 @@ class CharacterModel(Model):
     species = fields.CharField(max_length=50)
     type = fields.CharField(max_length=50)
     gender = fields.CharField(max_length=50)
+    location = fields.ForeignKeyField(
+        "models.LocationModel",
+        "characters",
+    )
     created_at = fields.DatetimeField(auto_now_add=True)
     updated_at = fields.DatetimeField(auto_now=True)
 

@@ -11,3 +11,4 @@ class CreateCharacterSchema(CamelModel):
     species: str
     type: str
     gender: str
+    location_id: int

@@ -19,6 +19,7 @@ def test_character_schema(character_fake_dict):
 
 
 def test_create_character_schema(character_fake_dict):
+    character_fake_dict["location_id"] = 1
     character = schemas.CreateCharacterSchema(**character_fake_dict)
     assert isinstance(character, CamelModel)
     assert isinstance(character.name, str)

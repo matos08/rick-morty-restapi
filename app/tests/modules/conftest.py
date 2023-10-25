@@ -28,4 +28,26 @@ def create_character_fake_dict():
         "species": faker.name(),
         "type": faker.name(),
         "gender": faker.name(),
+        "location_id": 1,
+    }
+
+
+@pytest.fixture()
+def location_fake_dict():
+    return {
+        "id": faker.random_int(min=1, max=999),
+        "name": faker.name(),
+        "type": faker.name(),
+        "dimension": faker.name(),
+        "created_at": datetime.now(),
+        "updated_at": datetime.now(),
+    }
+
+
+@pytest.fixture()
+def create_location_fake_dict():
+    return {
+        "name": faker.name(),
+        "type": faker.name(),
+        "dimension": faker.name(),
     }

@@ -2,6 +2,7 @@ from fastapi import APIRouter, status
 
 from app.modules.character import schemas, usecase
 from app.modules.core.default_schema import DefaultSchema
+from app.modules.location.usecase import GetLocationById
 
 router = APIRouter()
 
@@ -12,6 +13,7 @@ router = APIRouter()
     response_model=schemas.CharacterSchema,
 )
 async def create_character(payload: schemas.CreateCharacterSchema):
+    await GetLocationById(payload.location_id).validate()
     result = await usecase.CreateCharacterUseCase(payload).execute()
     return result
 
